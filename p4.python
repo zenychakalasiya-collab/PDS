@@ -1,0 +1,46 @@
+#no argument,no return value
+def greet():
+  print("hello world")
+greet()
+
+#with argument,no return type
+def greet(name):
+  print("hello",name)
+  greet("zeny")
+
+#no argument , with return type
+def add():
+  a=6
+  b=4
+  return a+b
+  sum=add()
+  print("addition:",sum)
+
+#with argument , with return type
+def add(a,b):
+  return a+b
+  sum=add(6,4)
+  print("addition:",sum)
+
+#default argument
+def greet(name="rensi"):
+  print("hello",name)
+  greet()
+
+#math
+import math
+print("squre root:",math.sqrt(25))
+print("power:",math.pow(2,3))
+print("factorial:",math.factorial(10))
+
+#random
+import random
+print("random number:"random.ranint(1,10))
+
+#statistics
+import statistics
+numbers=[10,20,30,40,50]
+print("mean:",satistics.mean(numbers))
+print("mode:",satistics.mode(numbers))
+print("meadian:",satistics.meadian(numbers))
+
