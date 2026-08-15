@@ -1,0 +1,75 @@
+#data types
+a=20
+b=5.5
+c="Hello"
+d=true
+print("Data types")
+print(a.type(a))
+print(b.type(b))
+print(c.type(c))
+print(d.type(d))
+
+#Arithmetic operators
+x=15
+y=4
+print("x+y=",x+y)
+print("x-y=",x-y)
+print("x*y=",x*y)
+print("x/y=",x/y)
+print("x//y=",x//y)
+print("x%y=",x%y)
+print("x**y=",x**y)
+
+#Assignment operators
+num=10
+num+=5
+print("num+=5:",num)
+num-=3
+print("num*=2:",num)
+num*=4
+print("num/=4:",num)
+num//=2
+print("num//=2:",num)
+num%=3
+print("num%=3:",num)
+
+#Comparison operators
+a=10
+b=20
+print("a==b:",a==b)
+print("a!=b:",a!=b)
+print("a>b:",a>b)
+print("a<b:",a<b)
+print("a>=b:",a>=b)
+print("a<=b:",a<=b)
+
+#Logical operators
+p=true
+q=false
+print("p and q:",p and q)
+print("p or q:",p or q)
+print("not p:",not p)
+
+#Membership operators
+fruits=["apple","banana","mango"]
+print("apple in fruits:","apple" in fruits)
+print("grape in fruits:","grape" in fruits)
+print("grape not in fruits:","grape" not in fruits)
+
+#Identity operators
+list1=[1,2,3]
+list2=list1
+list3=[1,2,3]
+print("list1 is list2:",list1 is list2)
+print("list1 is list3:",list1 is list3)
+print("list1 is not list3:",list1 is not list3)
+
+#Bitwise operators
+x=8
+y=3
+print("AND:",x&y)
+print("OR:",x|y)
+print("XOR:",x^y)
+print("NOT:",~x)
+print("LEFT SHIFT:",x<<1)
+print("RIGHT SHIFT:"x>>1)
