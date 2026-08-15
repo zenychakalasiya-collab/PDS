@@ -1,0 +1,52 @@
+#list
+fruits=["Apple","Banana","Mango"]
+fruits.append("Orange")
+print("after append():",fruits)
+fruits.insert(1,"Grape")
+print("after insert():",fruits)
+fruits.remove("Banana")
+print("after remove():",fruits)
+fruits.pop()
+print("after pop():",fruits)
+Fruits.sort()
+print("after sort():",fruits)
+fruits.reverse()
+print("after reverse():",fruits)
+fruits.extend("Kiwi","Watermelon")
+print("after extend():",fruits)
+print("Index of Apple:",fruits.index("Apple"))
+print("Count of Mango:",fruits.count("Mango"))
+
+#Tuple
+numbers=(10,20,30,20,40)
+print("count of 20:",numbers.count(20))
+print("index of 30:",numbers.index(30))
+
+#Set
+A={1,2,3,4}
+print("set A:',A)
+A.add(7)
+print("after add():",A)
+A.remove(2)
+print("after remove():"A)
+A.update([8,9])
+print("after update():",A)
+
+#Dictionary
+student={"name":"Zeny","age":20}
+print("original dictionary:",student)
+student["Age"]=21
+print("after updating Age:",student)
+student["city"]="surat"
+print("after adding city:",student)
+print("keys:",student.keys())
+print("values:",student.values())
+print("items:",items.student())
+
+#String
+text="Python"
+print("Upper:",text.upper())
+print("Lower:",text.lower())
+print("Title:",text.title())
+print("Replace:",text.replace("Python","Java"))
+      
