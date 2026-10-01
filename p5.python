@@ -1,0 +1,75 @@
+#Perform read, write and append operations on text files, CSV files, and binary files using Python. 
+#text file
+# Write operation
+file = open("demo.txt", "w")
+file.write("Hello, World!\n")
+file.write("Welcome\n")
+file.close() 
+
+# Read operation
+file = open("demo.txt", "r")
+content = file.read()
+print("After writing File Content:")
+print(content)
+file.close()
+
+# Append operation
+file = open("demo.txt", "a")
+file.write("This line is added using append operation.\n")
+file.close()
+
+# Read again to show appended content
+file = open("demo.txt", "r")
+print("After Append:")
+print(file.read())
+file.close()
+#csv file
+import csv
+data=[["Roll No", "Name", "Marks"],[1, "Bansi", 85],[2, "Zeny", 95],[3, "Zarna", 92]]
+
+# Write operation
+file = open("students.csv", "w", newline="")
+writer = csv.writer(file)
+writer.writerows(data)
+file.close()
+
+# Read operation
+file = open("students.csv", "r")
+reader = csv.reader(file)
+print("CSV File Content:")
+for row in reader:
+    print(row)
+file.close()
+# Append operation
+file = open("students.csv", "a", newline="")
+writer = csv.writer(file)
+writer.writerow([4, "Rensi", 88])
+file.close()
+print("\nAfter Append:")
+
+# Read again
+file = open("students.csv", "r")
+reader = csv.reader(file)
+for row in reader:
+    print(row)
+file.close()
+
+#binary file
+# Write operation
+file = open("sample.bin", "wb")
+file.write( b"Hello, World!")
+file.close()
+
+# Read operation
+file = open("sample.bin", "rb")
+print("Binary File Content:",file.read() )
+file.close()
+# Append operation
+file = open("sample.bin", "ab")
+file.write(b" Welcome to Python.")
+file.close()
+
+# Read again after append
+file = open("sample.bin", "rb")
+print("After Append:", file.read())
+file.close()
