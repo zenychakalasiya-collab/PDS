@@ -1,0 +1,36 @@
+#Demonstrate exception handling using try, except, else, finally blocks and raise statement with custom exceptions. 
+#try,except,else and finally
+try:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    result = num1 / num2
+except ZeroDivisionError:
+    print("Exception occured: division by zero")
+else:
+    print("Division =", result)
+
+finally:
+    print("Program execution completed.")
+#raise exception
+try:
+    n = int(input("Enter a number: "))
+    if n < 0:
+        raise Exception("Negative number is not allowed")
+except Exception as e:
+    print("Exception:", e)
+else:
+    print("Number =", n)
+class AgeError(Exception):
+    pass
+try:
+    age = int(input("Enter your age: "))
+    if age < 18:
+        raise AgeError("Age must be 18 or above")
+except AgeError as e:
+    print("Custom Exception:", e)
+
+else:
+    print("You are eligible")
+
+finally:
+    print("Program execution completed.")
