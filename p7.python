@@ -1,0 +1,57 @@
+!pip install mysql-connector-python
+import mysql.connector
+connection=mysql.connector.connect(
+   host="localhost",
+   user="root",
+   password="",
+)
+cursor=connection.cursor()
+print("connected to mysql successfully!")
+
+#create database and table
+cursor.execute("CREATE DATABASE IF NOT EXIST Collage")
+cursor.execute("USE collage")
+cursor.execute 
+CREATE TABLE IF NOT EXISTS student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    course VARCHAR(100)
+)
+""")
+print("Database and table created successfully")
+
+#insert record
+query="INSERT INTO student VALUES (%s, %s, %s, %s)"
+values=(1, "Zeny", 20, "Computer Engineering")
+cursor.execute(query,values)
+connection.commit()
+print("Record inserted successfully.")
+
+#read
+print("\nStudent Records:")
+cursor.execute("SELECT * FROM student")
+students=cursor.fetchone()
+print(students)
+
+#update
+query="UPDATE student SET age = %s WHERE id = %s",
+values=(21, 1)
+cursor.execute(query,values)
+connection.commit()
+
+#read updated record
+print("\nRecord updated successfully.")
+print("\nStudent Records:")
+cursor.execute("SELECT * FROM student")
+students=cursor.fetchone()
+print(students)
+
+#delete
+query="DELETE FROM student WHERE id = %s",
+values=(1,)
+cursor.execute(query,values)
+connection.commit()
+print("\nRecord deleted successfully.")
+cursor.close()
+connection.close()
