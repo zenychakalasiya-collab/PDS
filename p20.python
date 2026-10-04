@@ -1,0 +1,52 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("diabetic_data.csv")
+plt.figure(figsize=(12,8))
+
+lineplot
+mean = df.groupby("age")["time_in_hospital"].mean()
+plt.subplot(2,3,1)
+plt.plot(mean.index,mean.values,marker="o")
+plt.title("Average Hospital stay by age")
+plt.xlabel("Age Group")
+plt.ylabel("Average Hospital stay")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+#bar chart
+admission = df["admission_type_id"].value_counts().sort_index()
+plt.subplot(2,3,2)
+plt.bar(admission.index.astype(str),admission.values)
+plt.title("Patients by Admission type")
+plt.xlabel("Admission type ID")
+plt.ylabel("Number of patients")
+plt.show()
+
+#histogram
+plt.subplot(2,3,3)
+plt.hist(df["num_medications"].dropna(),bins=20)
+plt.title("Distribution of number of medications")
+plt.xlabel("Number of medications")
+plt.ylabel("Frequency")
+plt.show()
+
+#pie chart
+readmitted = df["readmitted"].value_counts()
+plt.subplot(2,3,4)
+plt.pie(readmitted.values,
+        labels=readmitted.index,
+        autopct="%1.1f%%")
+plt.title("Readmission distribution")
+plt.show()
+
+#scatter plot
+sample = df[["num_lab_procedures","num_medications"]].dropna().head(100)
+plt.subplot(2,3,5)
+plt.scatter(sample["num_lab_procedures"],sample["num_medications"],alpha=0.5)
+
+plt.title("Lab procedures vs medications")
+plt.xlabel("Number of lab procedures")
+plt.ylabel("Number of medications")
+plt.subplots_adjust(hspace=0.6,wspace=0.5)
+plt.show()
