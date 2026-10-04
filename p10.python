@@ -1,0 +1,38 @@
+import numpy as np
+
+# creation
+a1 = np.array([[1,2,3],
+               [4,5,6],
+               [7,8,9]])
+
+print("Array is:", a1)
+print("Zero grid:", np.zeros((2,4)))
+print("ones grid:", np.ones((2,3)))
+print("Even numbers:", np.arange(0,12).reshape(3,4))
+print("Equispaced:", np.linspace(0,1,10).reshape(2,5))
+
+# indexing
+print("Element at row 2, column 3:", a1[1,2])
+print("First row:", a1[0])
+print("Second row:", a1[1])
+
+# slicing
+print("First two rows:", a1[:2,:])
+print("last two columns:", a1[:,1:])
+print("first column:", a1[:,0])
+
+# Broadcasting
+a2 = np.array([10,20,30])
+print("Addition of array 1 and 2:", a1+a2)
+print("Floor division:", a2//5)
+
+# reshape
+a3 = np.arange(1,13).reshape(3,4)
+print("reshaped array (3x4):", a3)
+
+# Mathematical operations
+print("Addition :", a1+a2)
+print("subtraction:", a1-a2)
+print("multiplication:", a1*3)
+print("division :", a1/2)
+print("square :", a1**2)
