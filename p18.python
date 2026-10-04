@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("diabetic_data.csv", na_values="?")
+print("Initial Shape:", df.shape)
+df.head()
+
+#detect and handle missing value
+miss = df.isnull().sum()
+print("Missing values:", miss[miss > 0])
+for col in df.select_dtypes(include="object"):
+    if df[col].isnull().any():
+        df[col] = df[col].fillna(df[col].mode()[0])
+print("Remaining missing value:", df.isnull().sum().sum())
+
+#remove duplicate
+print("Duplicate value:", df.duplicated().sum())
+df.drop_duplicates(inplace=True)
+print("Shape after removing:", df.shape)
+
+#detect and treat outliers
+num_col = df.select_dtypes(include=np.number).columns
+
+for col in num_col:
+    Q1 = df[col].quantile(0.25)
+    Q3 = df[col].quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - 1.5 * IQR
+    upper = Q3 + 1.5 * IQR
+    outliers = ((df[col] < lower) | (df[col] > upper)).sum()
+    print(col,":", outliers)
+    df[col] = df[col].clip(lower, upper)
+
+print("Final Shape:", df.shape)
+df.head()
+
+print("Outliers Treated!!")
