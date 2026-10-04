@@ -1,0 +1,44 @@
+import pandas as pd
+df = pd.read_excel("Employee.xlsx")
+
+# Read dataset
+print(df)
+
+# Display Top 5 records:
+print(df.head(5))
+
+# Display Bottom 5 Record:
+print(df.tail(5))
+
+# select columns with specific datatype
+print("Integer Datatype Columns:", df.select_dtypes("int"))
+
+# Maximum & Minimum monthly Income
+print("Maximum Monthly Income:", df["MonthlyIncome"].max())
+print("Minimum Monthly Income:", df["MonthlyIncome"].min())
+
+# measure of central tendency
+print("Measure of Central Tendency:")
+print("Mean of Monthly Income:", df["MonthlyIncome"].mean())
+print("Median of Monthly Income:", df["MonthlyIncome"].median())
+print("Mode of Monthly Income:", df["MonthlyIncome"].mode()[0])
+
+# measure of spread
+print("Measure of spread:")
+print("Range of Monthly Income:", df["MonthlyIncome"].max() - df["MonthlyIncome"].min())
+print("Variance:", round(df["MonthlyIncome"].var(), 2))
+print("Standard deviation:", round(df["MonthlyIncome"].std(), 2))
+
+# Quartiles
+Q1 = df["MonthlyIncome"].quantile(0.25)
+Q2 = df["MonthlyIncome"].quantile(0.50)
+Q3 = df["MonthlyIncome"].quantile(0.75)
+IQR = Q3 - Q1
+print("Quantile 1 (25%):", Q1)
+print("Quantile 2 (50%):", Q2)
+print("Quantile 3 (75%):", Q3)
+print("Interquartile Range:", IQR)
+
+# Correlation
+print("Correlation Coefficient:")
+print("Age vs Monthly Income:", df["Age"].corr(df["MonthlyIncome"]))
