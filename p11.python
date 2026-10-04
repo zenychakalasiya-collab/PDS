@@ -1,0 +1,40 @@
+import pandas as pd
+
+# create series
+marks = pd.Series([85,72,90,65,78])
+print("Series:", marks)
+
+# create dataframe
+data = {
+    "Name": ["Zemy", "Bansi", "pal", "pari", "Ruchita", "Remsi"],
+    "Department": ["Computer", "IT", "IT", "Computer", "IT", "Computer"],
+    "Marks": [85,90,72,86,60,75],
+    "Age": [20,19,21,20,20,19]
+}
+
+df = pd.DataFrame(data)
+print("DataFrame:", df)
+
+# data selection
+print("select name & marks column:", df[["Name", "marks"]])
+print("select first two rows:", df.iloc[:2])
+print("marks of index 2:", df.loc[2, "marks"])
+
+# filtering data
+print("student with marks greater than 50 & age 20:",
+      df[(df["marks"] > 50) & (df["Age"] >= 20)])
+print("student from IT department:",
+      df[df["department"] == "IT"])
+
+# Grouping data
+print("Group by department of student:")
+grouped = df.groupby("Department")
+print(grouped["marks"].mean())
+
+# Aggregation
+print("Average marks:", df["marks"].mean())
+print("maximum age:", df["age"].max())
+print("minimum age:", df["age"].min())
+print("total marks:", df["marks"].sum())
+print("multiple aggregation:")
+print(df.groupby("Department")["marks"].agg(["mean", "sum"]))
