@@ -1,0 +1,74 @@
+import pandas as pd
+
+# data loading
+df = pd.read_csv("recipe reviews and user feedback Dataset.csv")
+features = [
+    "user_reputation",
+    "reply_count",
+    "thumbs_up",
+    "thumbs_down",
+    "best_score",
+    "stars",
+    "recipe_number"
+]
+X = df[features]
+y = df["stars"]
+print("Dataset shape:", df.shape)
+print("Sample records:")
+print(X.head())
+
+# data cleaning
+print("Missing values in Dataset:")
+print(df.isnull().sum())
+data = df.copy()
+initial_count = len(data)
+data = data.dropna().drop_duplicates().reset_index(drop=True)
+print("Initial records:", initial_count)
+print("Cleaned records:", len(data))
+print("Records Removed:", initial_count - len(data))
+X = data[features]
+y = data["stars"]
+
+# data splitting
+from sklearn.model_selection import train_test_split
+y_binary = (y >= 4).astype(int)
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y_binary,
+    test_size=0.20,
+    random_state=42,
+    stratify=y_binary
+)
+print("Total Records:", len(X))
+print("Training Records:", len(X_train))
+print("Testing Records:", len(X_test))
+
+# model training
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+model.fit(X_train, y_train)
+print("Model training completed")
+print("Model:", model)
+
+# model evaluation
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print("Model Accuracy:", round(accuracy * 100, 2), "%")
+print("Confusion Matrix:", confusion_matrix(y_test, y_pred))
+print("Classification Report:")
+print(classification_report( y_test,y_pred,target_names=["Low (0)", "Good (1)"])
+)
+
+# Prediction
+sample_review = X_test.iloc[0]
+actual_class = y_test.iloc[0]
+predicted_class = model.predict([sample_review])
+print("Sample review:", sample_review)
+print( "Actual Rating class:","Good (1)" if actual_class == 1 else "Low (0)"
+)
+print( "Predicted Rating class:","Good (1)" if predicted_class[0] == 1 else "Low (0)")
+   
