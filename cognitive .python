@@ -1,0 +1,105 @@
+print("Hello Python 101")
+
+print(int(1.1))
+print(float(1))
+print(str('1'))
+
+a=10
+b=1.1
+c=True
+print(type(a))
+print(type(b))
+print(type(c))
+
+a=10
+b=3
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+print(a//b)
+
+bool(1)
+
+print(2*60+30)
+print(30+2*60)
+
+Total_min=25+50+55
+Total_hr=Total_min/60
+print(Total_hr)
+
+a="Michael Jackson"
+b='Michael Jackson'
+print(type(a))
+print(type(b))
+
+print(a[0])
+print(a[-1])
+print(a[3:8])
+print(a[::2])
+print(a[0:5:2])
+
+print(len(a))
+
+Statement=a + ' is the best'
+print(Statement)
+     
+print(3 * "Micheal Jackson ")
+
+print("Micheal Jackson \n is the best")
+print("Micheal Jackson \t is the best")
+print("Micheal Jackson \ is the best")
+
+A="Thriller is the sixth studio albums"
+B=A.upper()
+print(B)
+     
+Name="Micheal Jackson is the best"
+R=Name.replace('Micheal','janet')
+print(R)
+
+Name.find('ea')
+
+Ratings=(10,9,6,5,10,8,9,6,2)
+A=('disco',10,1.2)
+print(type(Ratings))
+print(type(A))
+
+print(A[0])
+print(A[-1])
+
+B=A+('Hard rock',10)
+print(B)
+
+B=('disco', 10, 1.2, 'Hard rock', 10)
+print(B[0:3])
+     
+Ratings1=Ratings
+Ratings=(2,10,1)
+print(Ratings)
+
+s=sorted(Ratings)
+print(s)
+
+NT=(1,2,("pop","Rock"),(3,4),("cisco",(1,2)))
+print(NT[2])
+print(NT[2][1])
+
+L=["Micheal Jackson",10.1,1982]
+print(type(L))
+print(L[0])
+print(L[-1])
+print(L[0:2])
+
+L1=L+["pop",10]
+print(L1)
+
+L.extend(["pop",10])
+print(L)
+
+L.append(["abc",20])
+print(L)
+
+del(L[0])
+print(L)
+
