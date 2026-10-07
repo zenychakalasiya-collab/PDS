@@ -1,0 +1,15 @@
+import numpy as np
+from scipy.stats import ttest_1samp
+observations = np.array([72, 75, 78, 74, 77, 73, 76, 79, 75, 74])
+reference_mean = 75
+t_value, p_value = ttest_1samp(observations, reference_mean
+print("Sample values:", observations)
+print("Reference mean:", reference_mean)
+print("Calculated t-statistic:", round(t_value, 4))
+print("Obtained p-value:", round(p_value, 4))
+significance = 0.05
+if p_value < significance:
+    print("Decision: Reject the null hypothesis.")
+else:
+    print("Decision: Do not reject the null hypothesis.")
+  
